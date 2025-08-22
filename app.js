@@ -7,7 +7,7 @@ let cart = [];
 
 // Загрузить меню с backend
 async function loadMenu() {
-  const res = await fetch('http://localhost:3000/api/menu');
+  const res = await fetch('https://suddenapp2.vercel.app/api/menu');
   menu = await res.json();
   renderMenu();
 }
@@ -50,7 +50,7 @@ sendOrderBtn.onclick = async () => {
     return;
   }
   const order = cart.map(i => i.id);
-  const res = await fetch('http://localhost:3000/api/order', {
+  const res = await fetch('https://suddenapp2.vercel.app/api/order', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({order})
@@ -66,3 +66,4 @@ sendOrderBtn.onclick = async () => {
 }
 
 loadMenu();
+
